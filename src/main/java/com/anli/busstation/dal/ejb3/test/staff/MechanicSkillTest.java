@@ -1,10 +1,9 @@
 package com.anli.busstation.dal.ejb3.test.staff;
 
-import com.anli.busstation.dal.ejb3.test.Ejb3FixtureCreator;
+import com.anli.busstation.dal.ejb3.test.Ejb3ModuleAccessor;
 import com.anli.busstation.dal.interfaces.entities.staff.MechanicSkill;
-import com.anli.busstation.dal.interfaces.factories.ProviderFactory;
 import com.anli.busstation.dal.jpa.entities.staff.MechanicSkillImpl;
-import com.anli.busstation.dal.test.FixtureCreator;
+import com.anli.busstation.dal.test.ModuleAccessor;
 import java.math.BigInteger;
 
 public class MechanicSkillTest extends com.anli.busstation.dal.sql.test.staff.MechanicSkillTest {
@@ -19,17 +18,7 @@ public class MechanicSkillTest extends com.anli.busstation.dal.sql.test.staff.Me
     }
 
     @Override
-    protected ProviderFactory getFactory() {
-        return new com.anli.busstation.dal.ejb3.factories.ProviderFactory();
-    }
-
-    @Override
-    protected void setEntityId(MechanicSkill entity, BigInteger id) {
-        ((MechanicSkillImpl) entity).setId(id);
-    }
-
-    @Override
-    protected FixtureCreator getFixtureCreator() {
-        return new Ejb3FixtureCreator();
+    protected ModuleAccessor createModuleAccessor() {
+        return new Ejb3ModuleAccessor();
     }
 }

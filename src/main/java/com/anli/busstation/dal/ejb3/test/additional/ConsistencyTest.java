@@ -1,18 +1,12 @@
 package com.anli.busstation.dal.ejb3.test.additional;
 
-import com.anli.busstation.dal.ejb3.test.Ejb3FixtureCreator;
-import com.anli.busstation.dal.interfaces.factories.ProviderFactory;
-import com.anli.busstation.dal.test.FixtureCreator;
+import com.anli.busstation.dal.ejb3.test.Ejb3ModuleAccessor;
+import com.anli.busstation.dal.test.ModuleAccessor;
 
 public class ConsistencyTest extends com.anli.busstation.dal.test.additional.ConsistencyTest {
 
     @Override
-    protected FixtureCreator getFixtureCreator() {
-        return new Ejb3FixtureCreator();
-    }
-
-    @Override
-    protected ProviderFactory getFactory() {
-        return new com.anli.busstation.dal.ejb3.factories.ProviderFactory();
+    protected ModuleAccessor createModuleAccessor() {
+        return new Ejb3ModuleAccessor();
     }
 }

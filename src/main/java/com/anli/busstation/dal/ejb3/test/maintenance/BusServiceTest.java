@@ -1,14 +1,11 @@
 package com.anli.busstation.dal.ejb3.test.maintenance;
 
-import com.anli.busstation.dal.ejb3.test.Ejb3FixtureCreator;
+import com.anli.busstation.dal.ejb3.test.Ejb3ModuleAccessor;
 import com.anli.busstation.dal.interfaces.entities.maintenance.BusRefuelling;
 import com.anli.busstation.dal.interfaces.entities.maintenance.BusRepairment;
-import com.anli.busstation.dal.interfaces.entities.maintenance.BusService;
-import com.anli.busstation.dal.interfaces.factories.ProviderFactory;
 import com.anli.busstation.dal.jpa.entities.maintenance.BusRefuellingImpl;
 import com.anli.busstation.dal.jpa.entities.maintenance.BusRepairmentImpl;
-import com.anli.busstation.dal.jpa.entities.maintenance.BusServiceImpl;
-import com.anli.busstation.dal.test.FixtureCreator;
+import com.anli.busstation.dal.test.ModuleAccessor;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import org.joda.time.DateTime;
@@ -44,17 +41,7 @@ public class BusServiceTest extends com.anli.busstation.dal.sql.test.maintenance
     }
 
     @Override
-    protected ProviderFactory getFactory() {
-        return new com.anli.busstation.dal.ejb3.factories.ProviderFactory();
-    }
-
-    @Override
-    protected void setEntityId(BusService entity, BigInteger id) {
-        ((BusServiceImpl) entity).setId(id);
-    }
-
-    @Override
-    protected FixtureCreator getFixtureCreator() {
-        return new Ejb3FixtureCreator();
+    protected ModuleAccessor createModuleAccessor() {
+        return new Ejb3ModuleAccessor();
     }
 }
